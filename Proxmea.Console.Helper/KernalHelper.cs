@@ -18,6 +18,9 @@ namespace Proxmea.ConsoleHelper
           uint coord_XY,    // screen location to read, X:loword, Y:hiword
           out uint c_out);  // (unwanted, discard)
 
+        [DllImport("kernel32.dll")]
+        public static extern IntPtr GetConsoleWindow();
+
         [DllImport("kernel32", SetLastError = true, CharSet = CharSet.Unicode)]
         [return: MarshalAs(UnmanagedType.Bool)] //   ̲┌───────────────────^
         public static extern bool ReadConsoleOutputCharacterW(
